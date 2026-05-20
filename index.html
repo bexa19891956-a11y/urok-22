@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дверь.рф — Межкомнатные, входные двери и фурнитура</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --orange: #E8520A;
+    --orange-dark: #c44208;
+    --orange-light: #FF6B2B;
+    --gray-bg: #F5F5F5;
+    --gray-light: #EBEBEB;
+    --text-dark: #1A1A1A;
+    --text-muted: #777;
+    --border: #DCDCDC;
+    --white: #fff;
+    --radius: 8px;
+  }
+  body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: #fff; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; width: 100%; object-fit: cover; }
+
+  /* HEADER */
+  .topbar { background: #fff; border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 70px; }
+  .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .logo-icon { width: 36px; height: 36px; }
+  .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; color: var(--text-dark); }
+  .logo-text span { color: var(--orange); }
+  .logo-sub { font-size: 11px; color: var(--text-muted); line-height: 1.3; max-width: 140px; }
+  .location { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); margin-left: auto; }
+  .location strong { color: var(--orange); }
+  .phone-block { display: flex; align-items: center; gap: 8px; }
+  .phone-block small { font-size: 11px; color: var(--text-muted); display: block; }
+  .phone-block a { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; color: var(--text-dark); }
+  .header-icons { display: flex; gap: 8px; margin-left: 16px; }
+  .header-icons button { background: var(--gray-bg); border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative; }
+  .badge { position: absolute; top: -2px; right: -2px; background: var(--orange); color: #fff; font-size: 10px; font-weight: 700; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; }
+
+  /* NAV */
+  nav { background: #fff; border-bottom: 2px solid var(--gray-light); padding: 0 40px; display: flex; align-items: center; gap: 0; }
+  nav a { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-dark); padding: 16px 20px; display: block; transition: color .2s; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+  nav a:hover { color: var(--orange); border-bottom-color: var(--orange); }
+  .nav-search { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+  .nav-search input { border: 1px solid var(--border); border-radius: 20px; padding: 7px 16px; font-size: 13px; width: 200px; outline: none; }
+  .nav-search button { background: none; border: none; cursor: pointer; color: var(--text-muted); }
+
+  /* HERO SLIDER */
+  .hero { position: relative; height: 420px; overflow: hidden; background: #F0E8DF; display: flex; align-items: center; }
+  .hero-content { padding: 0 60px; z-index: 2; flex: 0 0 45%; }
+  .hero-content h1 { font-family: 'Montserrat', sans-serif; font-size: 52px; font-weight: 900; line-height: 1; color: var(--text-dark); text-transform: uppercase; }
+  .hero-content p { font-size: 14px; color: #555; margin: 16px 0 8px; line-height: 1.5; }
+  .hero-price { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: var(--text-dark); margin: 12px 0 20px; }
+  .btn-orange { background: var(--orange); color: #fff; border: none; border-radius: 30px; padding: 13px 28px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background .2s; }
+  .btn-orange:hover { background: var(--orange-dark); }
+  .badge-25 { position: absolute; top: 32px; right: 220px; background: var(--orange); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 900; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 3; }
+  .hero-img { position: absolute; right: 0; top: 0; height: 100%; width: 55%; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 3; }
+  .hero-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,.2); }
+  .hero-dots span.active { background: var(--orange); }
+  .hero-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.85); border: none; border-radius: 50%; width: 42px; height: 42px; cursor: pointer; font-size: 18px; color: var(--text-dark); z-index: 4; display: flex; align-items: center; justify-content: center; }
+  .hero-arrow.left { left: 12px; }
+  .hero-arrow.right { right: 12px; }
+
+  /* SECTIONS */
+  .section { padding: 48px 40px; }
+  .section-title { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: var(--text-dark); margin-bottom: 28px; }
+
+  /* CATALOG GRID */
+  .catalog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cat-card { border-radius: var(--radius); overflow: hidden; position: relative; height: 200px; cursor: pointer; }
+  .cat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+  .cat-card:hover img { transform: scale(1.05); }
+  .cat-card span { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,.7)); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 24px 16px 14px; }
+
+  /* PRODUCT TABS */
+  .tabs { display: flex; gap: 0; margin-bottom: 24px; }
+  .tab { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; padding: 9px 20px; border: 2px solid var(--border); border-radius: 30px; cursor: pointer; margin-right: 8px; background: #fff; color: var(--text-muted); transition: all .2s; }
+  .tab.active { background: var(--text-dark); color: #fff; border-color: var(--text-dark); }
+
+  /* PRODUCT GRID */
+  .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .product-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; cursor: pointer; transition: box-shadow .2s; }
+  .product-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.1); }
+  .product-card img { height: 200px; object-fit: contain; background: #F9F9F9; border-radius: 4px; margin-bottom: 12px; }
+  .product-card h4 { font-size: 13px; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; line-height: 1.4; }
+  .color-swatches { display: flex; gap: 4px; margin-bottom: 10px; flex-wrap: wrap; }
+  .swatch { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--border); }
+  .swatch-more { font-size: 11px; color: var(--orange); font-weight: 700; align-self: center; margin-left: 2px; }
+  .product-price { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 17px; color: var(--text-dark); }
+  .price-filters { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; align-items: center; }
+  .price-btn { border: 1px solid var(--border); border-radius: 30px; padding: 8px 20px; font-size: 13px; cursor: pointer; background: #fff; color: var(--text-muted); transition: all .2s; }
+  .price-btn:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* HARDWARE CATALOG */
+  .hw-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .hw-item { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 8px; border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: box-shadow .2s; text-align: center; }
+  .hw-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+  .hw-item img { width: 64px; height: 64px; object-fit: contain; }
+  .hw-item span { font-size: 12px; color: var(--text-dark); font-weight: 500; line-height: 1.3; }
+
+  /* DELIVERY BANNER */
+  .delivery-banner { background: #F7F7F7; border-radius: 12px; display: flex; align-items: center; gap: 40px; padding: 32px 40px; margin: 0 40px 48px; }
+  .delivery-banner img { width: 200px; height: 150px; object-fit: cover; border-radius: var(--radius); flex-shrink: 0; }
+  .delivery-banner h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+  .delivery-banner p { font-size: 14px; color: #555; line-height: 1.6; max-width: 500px; }
+
+  /* GALLERY */
+  .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 200px 200px; gap: 12px; }
+  .gallery-grid .big { grid-row: span 2; }
+  .gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+  .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 32px 40px; background: #fff; border-top: 1px solid var(--border); }
+  .trust-item h4 { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .trust-item p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .trust-icon { width: 36px; height: 36px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .trust-icon svg { width: 18px; height: 18px; fill: #fff; }
+
+  /* CTA FORM */
+  .cta-section { background: #F0F0F0; padding: 48px 40px; display: flex; gap: 60px; align-items: center; }
+  .cta-section img { width: 280px; height: 300px; object-fit: cover; object-position: top; border-radius: var(--radius); flex-shrink: 0; }
+  .cta-form { flex: 1; }
+  .cta-form h2 { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 900; margin-bottom: 6px; }
+  .cta-form p { font-size: 13px; color: #555; margin-bottom: 24px; }
+  .cta-form p span { color: var(--orange); font-weight: 600; }
+  .form-box { background: #fff; border-radius: 12px; padding: 28px; max-width: 420px; }
+  .form-box h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+  .form-box label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+  .form-box input { width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; font-size: 14px; margin-bottom: 14px; outline: none; }
+  .form-box input:focus { border-color: var(--orange); }
+  .form-box .checkbox { display: flex; align-items: flex-start; gap: 8px; font-size: 11px; color: var(--text-muted); margin-bottom: 16px; }
+
+  /* REVIEWS */
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .review-card { background: var(--gray-bg); border-radius: var(--radius); padding: 20px; }
+  .review-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .stars { color: #FFA500; font-size: 14px; }
+  .review-card p { font-size: 13px; color: #444; line-height: 1.6; }
+
+  /* BRANDS */
+  .brands-row { display: flex; gap: 20px; align-items: center; overflow-x: auto; padding: 20px 0; }
+  .brand-item { flex-shrink: 0; background: var(--gray-bg); border-radius: var(--radius); padding: 14px 24px; color: var(--text-muted); font-weight: 600; font-size: 14px; min-width: 100px; text-align: center; }
+
+  /* FOOTER */
+  .footer { background: #1A1A1A; color: #ccc; }
+  .footer-main { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 40px; padding: 48px 40px; }
+  .footer-logo { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+  .footer-logo span { color: var(--orange); }
+  .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 13px; color: #999; margin-bottom: 8px; transition: color .2s; }
+  .footer-col a:hover { color: var(--orange); }
+  .footer-contact p { font-size: 13px; color: #999; margin-bottom: 8px; }
+  .footer-contact strong { color: #fff; font-size: 17px; font-family: 'Montserrat', sans-serif; }
+  .footer-bottom { border-top: 1px solid #333; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #666; }
+  .social-links { display: flex; gap: 10px; }
+  .social-links a { background: #333; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 13px; }
+
+  /* MAP SECTION */
+  .contact-section { display: flex; }
+  .contact-info { background: #1A1A1A; color: #fff; padding: 48px 40px; flex: 0 0 380px; }
+  .contact-info h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 28px; }
+  .contact-row { display: flex; gap: 12px; margin-bottom: 20px; align-items: flex-start; }
+  .contact-row .icon { width: 32px; height: 32px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-row strong { display: block; font-size: 15px; margin-bottom: 2px; }
+  .contact-row span { font-size: 13px; color: #999; }
+  .map-embed { flex: 1; min-height: 400px; background: #e8e0d5; overflow: hidden; }
+  .map-embed iframe { width: 100%; height: 100%; border: none; min-height: 400px; }
+
+  @media (max-width: 900px) {
+    .catalog-grid, .product-grid, .hw-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="topbar">
+  <div class="logo">
+    <svg class="logo-icon" viewBox="0 0 36 36" fill="none">
+      <rect x="3" y="4" width="12" height="28" rx="2" fill="#E8520A"/>
+      <rect x="17" y="4" width="12" height="28" rx="2" fill="#1A1A1A"/>
+      <circle cx="14" cy="18" r="2" fill="#fff"/>
+    </svg>
+    <div>
+      <div class="logo-text">Дверь<span>.рф</span></div>
+    </div>
+  </div>
+  <div class="logo-sub">Межкомнатные, входные<br>двери и фурнитура к ним</div>
+  <div class="location" style="margin-left:auto">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+    г. <strong>Волгоград</strong>
+  </div>
+  <div style="font-size:11px; color:var(--text-muted); margin-left:16px">ул. Канкуникова д 6/1</div>
+  <div class="phone-block" style="margin-left:24px">
+    <svg width="18" height="18" fill="none" stroke="var(--orange)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.08 2.18 2 2 0 012.07 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.17 7.81a16 16 0 006.02 6.02l1.17-1.15a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+    <div>
+      <small>Звоните прямо сейчас:</small>
+      <a href="tel:+78442250300">+7 (844) 225-03-00</a>
+    </div>
+  </div>
+  <div class="header-icons">
+    <button><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+    <button style="position:relative"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg><span class="badge">1</span></button>
+    <button style="position:relative"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="badge">0</span></button>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#">Входные двери</a>
+  <a href="#">Межкомнатные двери</a>
+  <a href="#">Фурнитура</a>
+  <a href="#">Оплата</a>
+  <a href="#">Доставка и гарантия</a>
+  <a href="#">О магазине</a>
+  <div class="nav-search">
+    <input type="text" placeholder="Поиск">
+    <button><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>БОЛЬШИЕ<br>СКИДКИ</h1>
+    <p>Дверная ручка гонг PASINI 0940<br>TESTA LEONE OLV полированная латунь</p>
+    <div class="hero-price">33 070 ₽</div>
+    <button class="btn-orange">Подробнее <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+  </div>
+  <div class="badge-25">25%</div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Двери со скидкой">
+  </div>
+  <button class="hero-arrow left">&#8249;</button>
+  <button class="hero-arrow right">&#8250;</button>
+  <div class="hero-dots">
+    <span></span><span></span><span class="active"></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- CATALOG CATEGORIES -->
+<div class="section">
+  <h2 class="section-title">Каталог дверей</h2>
+  <div class="catalog-grid">
+    <div class="cat-card">
+      <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80" alt="Межкомнатные двери">
+      <span>Межкомнатные двери</span>
+    </div>
+    <div class="cat-card">
+      <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=600&q=80" alt="Стальные двери">
+      <span>Стальные двери</span>
+    </div>
+    <div class="cat-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Раздвижные двери">
+      <span>Межкомнатные раздвижные двери</span>
+    </div>
+    <div class="cat-card">
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=80" alt="Стеклянные двери">
+      <span>Стеклянные двери</span>
+    </div>
+  </div>
+</div>
+
+<!-- INTERIOR DOORS -->
+<div class="section" style="padding-top:0">
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px">
+    <h2 class="section-title" style="margin:0">Межкомнатные двери</h2>
+    <div class="tabs">
+      <button class="tab active">Популярные товары</button>
+      <button class="tab">Новые поступления</button>
+      <button class="tab">Товары по акции</button>
+    </div>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&q=80&fit=crop" alt="Экошпон антивандальный">
+      <h4>Экошпон антивандальный 5С Венге чёрное стекло</h4>
+      <div class="color-swatches">
+        <div class="swatch" style="background:#C4A882"></div>
+        <div class="swatch" style="background:#8B6914"></div>
+        <div class="swatch" style="background:#4A3728"></div>
+        <div class="swatch" style="background:#2C2C2C"></div>
+        <span class="swatch-more">+15</span>
+      </div>
+      <div class="product-price">15 500 ₽</div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=300&q=80&fit=crop" alt="Экошпон венге">
+      <h4>Экошпон антивандальный 5С Венге чёрное стекло</h4>
+      <div class="color-swatches">
+        <div class="swatch" style="background:#C4A882"></div>
+        <div class="swatch" style="background:#8B6914"></div>
+        <div class="swatch" style="background:#4A3728"></div>
+        <div class="swatch" style="background:#2C2C2C"></div>
+        <span class="swatch-more">+15</span>
+      </div>
+      <div class="product-price">15 500 ₽</div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=400&h=300&q=80&fit=crop" alt="Экошпон стекло">
+      <h4>Экошпон антивандальный 5С Венге чёрное стекло</h4>
+      <div class="color-swatches">
+        <div class="swatch" style="background:#C4A882"></div>
+        <div class="swatch" style="background:#8B6914"></div>
+        <div class="swatch" style="background:#4A3728"></div>
+        <div class="swatch" style="background:#2C2C2C"></div>
+        <span class="swatch-more">+15</span>
+      </div>
+      <div class="product-price">15 500 ₽</div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&q=80&fit=crop" alt="Экошпон бетон">
+      <h4>Экошпон антивандальный 5С Венге чёрное стекло</h4>
+      <div class="color-swatches">
+        <div class="swatch" style="background:#C4A882"></div>
+        <div class="swatch" style="background:#8B6914"></div>
+        <div class="swatch" style="background:#4A3728"></div>
+        <div class="swatch" style="background:#2C2C2C"></div>
+        <span class="swatch-more">+15</span>
+      </div>
+      <div class="product-price">15 500 ₽</div>
+    </div>
+  </div>
+  <div class="price-filters">
+    <button class="price-btn">до 10 000 ₽</button>
+    <button class="price-btn">от 10 000 до 20 000 ₽</button>
+    <button class="price-btn">от 20 000 ₽</button>
+    <button class="btn-orange" style="margin-left:auto">Перейти в каталог</button>
+  </div>
+</div>
+
+<!-- ENTRANCE DOORS -->
+<div class="section" style="padding-top:0; background:var(--gray-bg)">
+  <div style="padding-top:40px; display:flex; align-items:center; justify-content:space-between; margin-bottom:20px">
+    <h2 class="section-title" style="margin:0">Входные двери</h2>
+    <div class="tabs">
+      <button class="tab active">Популярные товары</button>
+      <button class="tab">Новые поступления</button>
+      <button class="tab">Товары по акции</button>
+    </div>
+  </div>
+  <div class="product-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="product-card" style="background:#fff">
+      <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=400&h=250&q=80&fit=crop" alt="Входная дверь 1">
+      <h4>Экошпон антивандальный 5С Венге чёрное стекло</h4>
+      <div class="color-swatches">
+        <div class="swatch" style="background:#2C2C2C"></div>
+        <div class="swatch" style="background:#4A3728"></div>
+        <div class="swatch" style="background:#8B6914"></div>
+        <div class="swatch" style="background:#C4A882"></div>
+        <span class="swatch-more">+15</span>
+      </div>
+      <div class="product-price">15 500 ₽</div>
+    </div>
+    <div class="product-card" style="background:#fff">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&q=80&fit=crop" alt="Входная дверь 2">
+      <h4>Экошпон антивандальный 5С Венге чёрное стекло</h4>
+      <div class="color-swatches">
+        <div class="swatch" style="background:#2C2C2C"></div>
+        <div class="swatch" style="background:#4A3728"></div>
+        <div class="swatch" style="background:#8B6914"></div>
+        <div class="swatch" style="background:#C4A882"></div>
+        <span class="swatch-more">+15</span>
+      </div>
+      <div class="product-price">15 500 ₽</div>
+    </div>
+    <div class="product-card" style="background:#fff">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=250&q=80&fit=crop" alt="Входная дверь 3">
+      <h4>Экошпон антивандальный 5С Венге чёрное стекло</h4>
+      <div class="color-swatches">
+        <div class="swatch" style="background:#2C2C2C"></div>
+        <div class="swatch" style="background:#4A3728"></div>
+        <div class="swatch" style="background:#8B6914"></div>
+        <div class="swatch" style="background:#C4A882"></div>
+        <span class="swatch-more">+15</span>
+      </div>
+      <div class="product-price">15 500 ₽</div>
+    </div>
+  </div>
+  <div class="price-filters" style="padding-bottom:40px">
+    <button class="price-btn">до 10 000 ₽</button>
+    <button class="price-btn">от 10 000 до 20 000 ₽</button>
+    <button class="price-btn">от 20 000 ₽</button>
+    <button class="btn-orange" style="margin-left:auto">Перейти в каталог</button>
+  </div>
+</div>
+
+<!-- HARDWARE CATALOG -->
+<div class="section">
+  <h2 class="section-title">Каталог дверной фурнитуры</h2>
+  <div class="hw-grid">
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100&h=100&q=80&fit=crop" alt="Ручки на розетке">
+      <span>Ручки на розетке</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=100&h=100&q=80&fit=crop" alt="Ручка на планке">
+      <span>Ручка на планке</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=100&h=100&q=80&fit=crop" alt="Ручки-кнобы">
+      <span>Ручки-кнобы</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=100&h=100&q=80&fit=crop" alt="Ручки скобы">
+      <span>Ручки скобы</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=100&h=100&q=80&fit=crop" alt="Замки врезные">
+      <span>Замки врезные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=100&h=100&q=80&fit=crop" alt="Замки накладные">
+      <span>Замки накладные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?w=100&h=100&q=80&fit=crop" alt="Замки кодовые">
+      <span>Замки кодовые</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100&h=100&q=80&fit=crop" alt="Замки навесные">
+      <span>Замки навесные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=100&h=100&q=80&fit=crop" alt="Глазки дверные">
+      <span>Глазки дверные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=100&h=100&q=80&fit=crop" alt="Цилиндровые механизмы">
+      <span>Цилиндровые механизмы</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=100&h=100&q=80&fit=crop" alt="Задвижки дверные">
+      <span>Задвижки дверные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=100&h=100&q=80&fit=crop" alt="Раздвижные системы">
+      <span>Раздвижные системы</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=100&h=100&q=80&fit=crop" alt="Накладки дверные">
+      <span>Накладки дверные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?w=100&h=100&q=80&fit=crop" alt="Петли врезные">
+      <span>Петли врезные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=100&h=100&q=80&fit=crop" alt="Доводчики дверные">
+      <span>Доводчики дверные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100&h=100&q=80&fit=crop" alt="Упоры дверные">
+      <span>Упоры дверные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=100&h=100&q=80&fit=crop" alt="Защёлки межкомнатные">
+      <span>Защёлки межкомнатные</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=100&h=100&q=80&fit=crop" alt="Механизмы для ручек">
+      <span>Механизмы для ручек</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=100&h=100&q=80&fit=crop" alt="Фурнитура для финских дверей">
+      <span>Фурнитура для финских дверей</span>
+    </div>
+    <div class="hw-item">
+      <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=100&h=100&q=80&fit=crop" alt="Шпингалеты дверные">
+      <span>Шпингалеты дверные</span>
+    </div>
+  </div>
+</div>
+
+<!-- DELIVERY BANNER -->
+<div class="delivery-banner">
+  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&q=80&fit=crop" alt="Установка дверей">
+  <div>
+    <h3>Доставка и установка дверей</h3>
+    <p>Правильно установленная дверь будет служить долго, а пользоваться ей будет приятно. Специалисты магазина Дверь.рф имеют богатый опыт установки дверей и все необходимые инструменты. Ниже приведены цены на услуги по доставке и установке дверей.</p>
+    <button class="btn-orange" style="margin-top:20px">Прайс-лист</button>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="section">
+  <h2 class="section-title">Фото магазина</h2>
+  <div class="gallery-grid">
+    <div class="big">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=412&q=80&fit=crop" alt="Магазин дверей">
+    </div>
+    <div><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&q=80&fit=crop" alt="Выставка дверей"></div>
+    <div><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=200&q=80&fit=crop" alt="Интерьер магазина"></div>
+    <div><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=200&q=80&fit=crop" alt="Стальные двери"></div>
+    <div><img src="https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?w=400&h=200&q=80&fit=crop" alt="Межкомнатные двери"></div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM12 14a2 2 0 110-4 2 2 0 010 4z"/></svg></div>
+    <h4>Доставка и установка</h4>
+    <p>Доставка, подъём и установка двери осуществляется нашими специалистами.</p>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+    <h4>Гарантия</h4>
+    <p>Гарантия составляет 18 месяцев с момента покупки.</p>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
+    <h4>Как купить?</h4>
+    <p>Приобрести понравившуюся вам дверь можно приехав в наш магазин, либо позвонив и вызвав замерщика.</p>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg></div>
+    <h4>Оплата</h4>
+    <p>Оплата возможна наличными и картой. Для юридических лиц возможна также оплата по безналичному расчёту.</p>
+  </div>
+</div>
+
+<!-- CTA FORM -->
+<div class="cta-section">
+  <img src="https://images.unsplash.com/photo-1531891570158-e71b35a485bc?w=400&h=500&q=80&fit=crop&face" alt="Специалист по замеру">
+  <div class="cta-form">
+    <h2>Пригласите специалиста на замер!</h2>
+    <p>Замер и консультации <span>бесплатно</span>.</p>
+    <div class="form-box">
+      <h3>Заполните форму</h3>
+      <label>Напишите своё имя</label>
+      <input type="text" placeholder="Евгений Сергеевич">
+      <label>Контактный телефон</label>
+      <input type="tel" placeholder="+7 (924) 608-42-44">
+      <div class="checkbox">
+        <input type="checkbox" style="margin-top:2px; flex-shrink:0; width:auto">
+        <span>Нажимая на кнопку, вы даёте согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности</span>
+      </div>
+      <button class="btn-orange" style="width:100%; justify-content:center">Связаться со мной</button>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="section">
+  <h2 class="section-title">Отзывы о нас</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-top">
+        <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Максим">
+        <div>
+          <div style="font-weight:600; font-size:14px">Максим Александрович</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p>Хороший магазин, большой выбор, приветливые сотрудники. Покупали двери в новую квартиру в ЖК "Бейкер Стрит". Качеством остались очень довольны. Хочется выразить благодарность менеджеру Сергею за помощь в выборе дверей...</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ирина">
+        <div>
+          <div style="font-weight:600; font-size:14px">Ирина</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p>Рекомендую данный магазин! Искала подходящие по дизайну двери в новую квартиру, благодаря большому выбору наконец нашла. Менеджер проконсультировал по всем моим вопросам. Заказала доставку с установкой, всё привезли, сделали быстро...</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <img class="avatar" src="https://randomuser.me/api/portraits/men/67.jpg" alt="Николай">
+        <div>
+          <div style="font-weight:600; font-size:14px">Николай Петрович</div>
+          <div class="stars">★★★★☆</div>
+        </div>
+      </div>
+      <p>Хочу сказать спасибо за отличную работу профессиональных консультантов и отдела установки. Все было сделано в срок и с высоким качеством. Поставили пять дверей в квартиру, поднятые вопросы решались оперативно...</p>
+    </div>
+  </div>
+</div>
+
+<!-- POPULAR BRANDS -->
+<div class="section" style="padding-top:0">
+  <h2 class="section-title">Популярные бренды</h2>
+  <div class="brands-row">
+    <div class="brand-item">PASINI</div>
+    <div class="brand-item">LAGRINI</div>
+    <div class="brand-item">LEONE</div>
+    <div class="brand-item">PROFIL</div>
+    <div class="brand-item">TOREX</div>
+    <div class="brand-item">СТАЛЬНАЯ ЛИНИЯ</div>
+    <div class="brand-item">ЭКОНОМ</div>
+    <div class="brand-item">БЕРЕГ</div>
+  </div>
+</div>
+
+<!-- CONTACT + MAP -->
+<div class="contact-section">
+  <div class="contact-info">
+    <h2>Как с нами связаться</h2>
+    <div class="contact-row">
+      <div class="icon"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.08 2.18 2 2 0 012.07 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.17 7.81a16 16 0 006.02 6.02l1.17-1.15a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></div>
+      <div>
+        <span>Звоните прямо сейчас:</span>
+        <strong>+7 (844) 225-03-00</strong>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="icon"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+      <div>
+        <span>Адрес:</span>
+        <strong>Волгоград, ул. Канунникова 6/1</strong>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="icon"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div>
+        <span>Режим работы:</span>
+        <strong>ежедневно 9:00 – 19:00</strong>
+      </div>
+    </div>
+    <div class="social-links" style="margin-top:32px">
+      <a href="#" title="Facebook">f</a>
+      <a href="#" title="VK">VK</a>
+      <a href="#" title="YouTube">▶</a>
+      <a href="#" title="Instagram">ig</a>
+      <a href="#" title="OK">OK</a>
+    </div>
+  </div>
+  <div class="map-embed">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.7!2d44.5018!3d48.7083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDQyJzMwLjAiTiA0NMKwMzAnMDYuNiJF!5e0!3m2!1sru!2sru!4v1234567890"
+      width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div>
+      <div class="footer-logo">Дверь<span>.рф</span></div>
+      <p style="font-size:12px; color:#777; line-height:1.6">Интернет магазин фабрики дверей «Дверь.рф». Входные и межкомнатные двери от производителя.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Каталог</h4>
+      <a href="#">Входные двери</a>
+      <a href="#">Межкомнатные двери</a>
+      <a href="#">Раздвижные двери</a>
+      <a href="#">Стеклянные двери</a>
+      <a href="#">Фурнитура</a>
+    </div>
+    <div class="footer-col">
+      <h4>Информация</h4>
+      <a href="#">О магазине</a>
+      <a href="#">Доставка и гарантия</a>
+      <a href="#">Оплата</a>
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Пользовательское соглашение</a>
+    </div>
+    <div class="footer-contact footer-col">
+      <h4>Контакты</h4>
+      <p>Волгоград, ул. Канунникова 6/1</p>
+      <strong>+7 (844) 225-03-00</strong>
+      <p style="margin-top:8px">ежедневно 9:00 – 19:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2005–2024 Дверь.рф. Все права защищены.</span>
+    <div class="footer-logo" style="font-size:16px">Дверь<span>.рф</span></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      this.closest('.tabs').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
